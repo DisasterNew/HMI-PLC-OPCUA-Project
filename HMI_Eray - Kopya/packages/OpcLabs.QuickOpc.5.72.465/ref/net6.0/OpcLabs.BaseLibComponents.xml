@@ -1,0 +1,785 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>OpcLabs.BaseLibComponents</name>
+  </assembly>
+  <members>
+    <member name="T:OpcLabs.BaseLib.ComponentModel.Design.NamespaceDoc">
+      <summary>
+            This namespace contains classes that developers can use to build custom design-time behavior for components and
+            user interfaces for configuring components at design time. 
+            </summary>
+    </member>
+    <member name="T:OpcLabs.BaseLib.ComponentModel.Design.CommandVerb">
+      <exclude />
+    </member>
+    <member name="T:OpcLabs.BaseLib.Connectivity.CompositeConnectivity">
+      <summary>
+            Provides connectivity composed of other (constituent) connectivities.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.#ctor">
+      <overloads>
+        <summary>
+            Initializes a new instance of the class.
+            </summary>
+      </overloads>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.#ctor(OpcLabs.BaseLib.Connectivity.CompositeConnectivity)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <summary>Initializes a new instance of the class, copying values from a given object.</summary>
+      <param name="compositeConnectivity">The object to be copied from.</param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <summary>
+            Required for Windows.Forms Class Composition Designer support
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.#ctor(System.Collections.Generic.IEnumerable{OpcLabs.BaseLib.Connectivity.IConnectivity})">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <param name="connectivities">The constituent connectivities of this composite connectivity.</param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.Connectivities">
+      <summary>
+            The constituent connectivities of this composite connectivity.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.Add(OpcLabs.BaseLib.Connectivity.IConnectivity)">
+      <summary>
+            Adds a constituent connectivity to this composed connectivity.
+            </summary>
+      <param name="connectivity">The constituent connectivity to be added.</param>
+      <returns>
+        <c>true</c> if the constituent connectivity has been successfully added; <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.GetIsIncluded(OpcLabs.BaseLib.Connectivity.IConnectivity)">
+      <summary>
+            Determines whether a connectivity is included in this composite.
+            </summary>
+      <param name="connectivity"> The connectivity on which the extender property resides.</param>
+      <returns>
+        <c>true</c> if the connectivity is included in the composite; <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.Remove(OpcLabs.BaseLib.Connectivity.IConnectivity)">
+      <summary>
+            Removes a constituent connectivity from this composed connectivity.
+            </summary>
+      <param name="connectivity">The constituent connectivity to be removed.</param>
+      <returns>
+        <c>true</c> if the constituent connectivity has been successfully removed; <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.SetIsIncluded(OpcLabs.BaseLib.Connectivity.IConnectivity,System.Boolean)">
+      <summary>
+            Determines whether a connectivity is included in this composite.
+            </summary>
+      <param name="connectivity"> The connectivity on which the extender property resides.</param>
+      <param name="value">
+        <c>true</c> if the connectivity is to be included in the composite; <c>false</c> otherwise. 
+            </param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.ToString">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.Clone">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.GetService(System.Type)">
+      <inheritdoc cref="M:System.IServiceProvider.GetService(System.Type)" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.GetEnumerator">
+      <inheritdoc cref="M:System.Collections.Generic.IEnumerable`1.GetEnumerator" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.System#Collections#Generic#IEnumerable{OpcLabs#BaseLib#Connectivity#IConnectivity}#GetEnumerator">
+      <inheritdoc cref="M:System.Collections.IEnumerable.GetEnumerator" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.CanExtend(System.Object)">
+      <inheritdoc cref="M:System.ComponentModel.IExtenderProvider.CanExtend(System.Object)" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <inheritdoc cref="M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.ValueEquals(System.Object)">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.ReadXmlElement(System.Xml.XmlReader)">
+      <inheritdoc cref="M:OpcLabs.BaseLib.Info.ReadXmlElement(System.Xml.XmlReader)" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.ValueEquals(OpcLabs.BaseLib.Connectivity.CompositeConnectivity)">
+      <summary>
+            Determines whether the specified <see cref="T:OpcLabs.BaseLib.Connectivity.CompositeConnectivity" /> is value equal to the current object.
+            </summary>
+      <param name="other">The <see cref="T:OpcLabs.BaseLib.Connectivity.CompositeConnectivity" /> to compare with the current object.</param>
+      <returns>
+        <c>true</c> if the specified object is value equal to the current object; otherwise, <c>false</c>.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.WriteXmlElement(System.Xml.XmlWriter)">
+      <inheritdoc cref="M:OpcLabs.BaseLib.Info.WriteXmlElement(System.Xml.XmlWriter)" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.ShouldSerializeConnectivities">
+      <summary>
+            Determines whether the <see cref="P:OpcLabs.BaseLib.Connectivity.CompositeConnectivity.Connectivities" /> property is equal to its default value.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+    </member>
+    <member name="T:OpcLabs.BaseLib.Connectivity.NamespaceDoc">
+      <summary>
+            This namespace provides classes for general-purpose connectivity. 
+            </summary>
+    </member>
+    <member name="T:OpcLabs.BaseLib.Drawing.Extensions.BitmapExtension">
+      <exclude />
+    </member>
+    <member name="T:OpcLabs.BaseLib.Drawing.Extensions.ImageExtension">
+      <exclude />
+    </member>
+    <member name="T:OpcLabs.BaseLib.Drawing.Extensions.NamespaceDoc">
+      <summary>
+            This namespace contains extension classes for access to GDI+ basic graphics functionality.
+            </summary>
+    </member>
+    <member name="T:OpcLabs.BaseLib.Drawing.Utilities.BitmapUtilities">
+      <exclude />
+    </member>
+    <member name="T:OpcLabs.BaseLib.Drawing.Utilities.ColorUtilities">
+      <exclude />
+    </member>
+    <member name="T:OpcLabs.BaseLib.Drawing.Utilities.NamespaceDoc">
+      <summary>
+            This namespace contains utility types for drawing.
+            </summary>
+    </member>
+    <member name="T:OpcLabs.BaseLib.LiveBinding.BindingExtender">
+      <summary>
+            Extends components by giving them live binding capabilities.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.BaseLib.LiveBinding.BindingExtender.#ctor">
+      <inheritdoc cref="T:OpcLabs.BaseLib.LiveBinding.BindingExtenderCore" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.LiveBinding.BindingExtender.#ctor(OpcLabs.BaseLib.LiveBinding.BindingExtender)">
+      <summary>
+            Initializes a new instance of the class, copying values from given <see cref="T:OpcLabs.BaseLib.LiveBinding.BindingExtender" />.
+            </summary>
+      <param name="bindingExtender">The object to copy from.</param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.LiveBinding.BindingExtender.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.BaseLib.LiveBinding.BindingExtender" /> class with Designer support. 
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.LiveBinding.BindingExtender.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.LiveBinding.BindingExtender.Clone">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.BaseLib.LiveBinding.BindingExtender.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="T:OpcLabs.BaseLib.LiveBinding.NamespaceDoc">
+      <summary>
+            This namespace contains components used for live binding.
+            </summary>
+    </member>
+    <member name="T:OpcLabs.BaseLib.LiveBinding.PointBinder">
+      <summary>
+            Provides binding to connectivity points.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.BaseLib.LiveBinding.PointBinder.#ctor">
+      <inheritdoc cref="T:OpcLabs.BaseLib.LiveBinding.BinderBase" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.LiveBinding.PointBinder.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.BaseLib.LiveBinding.PointBinder" /> class with Designer support. 
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.LiveBinding.PointBinder.#ctor(OpcLabs.BaseLib.LiveBinding.PointBinder)">
+      <summary>
+            Initializes a new instance of the class, copying values from given <see cref="T:OpcLabs.BaseLib.LiveBinding.PointBinder" />.
+            </summary>
+      <param name="pointBinder">The point binder to copy from.</param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.LiveBinding.PointBinder.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.LiveBinding.PointBinder.Clone">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.BaseLib.LiveBinding.PointBinder.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="T:OpcLabs.BaseLib.Internal.AssemblyNames">
+      <exclude />
+    </member>
+    <member name="T:OpcLabs.BaseLib.Internal.PublicKeyTokens">
+      <exclude />
+    </member>
+    <member name="T:OpcLabs.BaseLib.Internal.SystemAssemblyNames">
+      <exclude />
+    </member>
+    <member name="T:OpcLabs.BaseLib.Components.NamespaceDoc">
+      <summary>
+            This namespace contains concrete generally usable components.
+            </summary>
+    </member>
+    <member name="T:OpcLabs.BaseLib.Components.OffLimitBehavior">
+      <summary>
+            Specifies behavior when a value is off-the-limit.
+            </summary>
+    </member>
+    <member name="F:OpcLabs.BaseLib.Components.OffLimitBehavior.Normal">
+      <summary>
+            Normal behavior. Ignore the off-limit condition.
+            </summary>
+    </member>
+    <member name="F:OpcLabs.BaseLib.Components.OffLimitBehavior.Error">
+      <summary>
+            Error behavior.
+            </summary>
+    </member>
+    <member name="F:OpcLabs.BaseLib.Components.OffLimitBehavior.Clamp">
+      <summary>
+            Clamp the value when off-the-limit.
+            </summary>
+    </member>
+    <member name="T:OpcLabs.BaseLib.Components.Resource1">
+      <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.Resource1.ResourceManager">
+      <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.Resource1.Culture">
+      <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.Resource1.StatusToColorConverter_ConvertBack_NotSupported">
+      <summary>
+              Looks up a localized string similar to Inverse conversion is not supported by StatusToColorConverter..
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.Resource1.StatusToColorConverter_ConvertToColor_UnknownType">
+      <summary>
+              Looks up a localized string similar to We do not know how to convert a status of type "{0}" to a color..
+            </summary>
+    </member>
+    <member name="T:OpcLabs.BaseLib.Components.LinearConverter">
+      <summary>
+             Converts values using a linear function.
+             </summary>
+      <remarks>
+        <para>
+             The LinearConverter component provide a linear conversion and its inverse, and also (optionally) allows output value 
+             clamping. The linear conversion is useful for proper scaling of values when the underlying value source does not 
+             directly have the desired value.</para>
+        <para>
+             You configure the parameters of the linear conversion so that the X1 value converts to Y1, and the X2 value converts 
+             to Y2. Other values are interpolated or extrapolated according to these settings.</para>
+        <para>
+             For values that fall outside the given limits, you can choose one of the following behaviors:
+             <ul><li>Normal. The off-limit condition is ignored, the value is converted as usual.</li><li>Error. An exception is thrown.</li><li>Clamp. The output value is clamped at the limit.</li></ul></para>
+      </remarks>
+    </member>
+    <member name="F:OpcLabs.BaseLib.Components.LinearConverter.DefaultOffLimitBehavior">
+      <summary>
+            Default value for the 
+            <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.OffX1Limit" />, 
+            <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.OffX2Limit" />, 
+            <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.OffY1Limit" /> and 
+            <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.OffY2Limit" />
+            properties.
+            </summary>
+    </member>
+    <member name="F:OpcLabs.BaseLib.Components.LinearConverter.DefaultX1">
+      <summary>Default value of the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.X1" /> property.</summary>
+    </member>
+    <member name="F:OpcLabs.BaseLib.Components.LinearConverter.DefaultX2">
+      <summary>Default value of the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.X2" /> property.</summary>
+    </member>
+    <member name="F:OpcLabs.BaseLib.Components.LinearConverter.DefaultY1">
+      <summary>Default value of the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.Y1" /> property.</summary>
+    </member>
+    <member name="F:OpcLabs.BaseLib.Components.LinearConverter.DefaultY2">
+      <summary>Default value of the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.Y2" /> property.</summary>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.#ctor">
+      <overloads>
+        <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.BaseLib.Components.LinearConverter" /> class. 
+            </summary>
+      </overloads>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.#ctor(System.Double,System.Double,System.Double,System.Double)">
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.BaseLib.Components.LinearConverter" /> class. 
+            </summary>
+      <param name="x1">X coordinate of the first point on the conversion line.</param>
+      <param name="x2">X coordinate of the second point on the conversion line.</param>
+      <param name="y1">Y coordinate of the first point on the conversion line.</param>
+      <param name="y2">Y coordinate of the second point on the conversion line.</param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.#ctor(System.Double,System.Double,System.Double,System.Double,OpcLabs.BaseLib.Components.OffLimitBehavior,OpcLabs.BaseLib.Components.OffLimitBehavior,OpcLabs.BaseLib.Components.OffLimitBehavior,OpcLabs.BaseLib.Components.OffLimitBehavior)">
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.BaseLib.Components.LinearConverter" /> class. 
+            </summary>
+      <param name="x1">X coordinate of the first point on the conversion line.</param>
+      <param name="x2">X coordinate of the second point on the conversion line.</param>
+      <param name="y1">Y coordinate of the first point on the conversion line.</param>
+      <param name="y2">Y coordinate of the second point on the conversion line.</param>
+      <param name="offX1Limit">Conversion behavior when the input value is off the X1 limit.</param>
+      <param name="offX2Limit">Conversion behavior when the input value is off the X2 limit.</param>
+      <param name="offY1Limit">Inverse conversion behavior when the input value is off the X1 limit.</param>
+      <param name="offY2Limit">Inverse conversion behavior when the input value is off the X2 limit.</param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.BaseLib.Components.LinearConverter" /> class. 
+            </summary>
+      <summary>
+            Required for Windows.Forms Class Composition Designer support
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.#ctor(OpcLabs.BaseLib.Components.LinearConverter)">
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.BaseLib.Components.LinearConverter" /> class. 
+            </summary>
+      <summary>Initializes a new instance of the class, copying values from a given object.</summary>
+      <param name="linearConverter">The object to be copied from.</param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.BaseLib.Components.LinearConverter" /> class. 
+            </summary>
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.DefaultInverseRoot">
+      <summary>
+            Default value of the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.InverseRoot" /> property.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.DefaultInverseSlope">
+      <summary>
+            Default value of the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.InverseSlope" /> property.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.DefaultInverseYIntercept">
+      <summary>
+            Default value of the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.InverseYIntercept" /> property.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.DefaultRoot">
+      <summary>
+            Default value of the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.Root" /> property.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.DefaultSlope">
+      <summary>
+            Default value of the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.Slope" /> property.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.DefaultYIntercept">
+      <summary>
+            Default value of the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.YIntercept" /> property.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.InverseRoot">
+      <summary>
+            The root of the inverse conversion function.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.InverseSlope">
+      <summary>
+            The slope of the inverse conversion function.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.InverseYIntercept">
+      <summary>
+            The y-intercept of the inverse conversion function.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.OffX1Limit">
+      <summary>
+            Conversion behavior when the input value is off the X1 limit.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.OffX2Limit">
+      <summary>
+            Conversion behavior when the input value is off the X2 limit.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.OffY1Limit">
+      <summary>
+            Inverse conversion behavior when the input value is off the X1 limit.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.OffY2Limit">
+      <summary>
+            Inverse conversion behavior when the input value is off the X2 limit.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.Root">
+      <summary>
+            The root of the conversion function.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.Slope">
+      <summary>
+            The slope of the conversion function.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.X1">
+      <summary>
+            X coordinate of the first point on the conversion line.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.X2">
+      <summary>
+            X coordinate of the second point on the conversion line.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.YIntercept">
+      <summary>
+            The y-intercept of the conversion function.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.Y1">
+      <summary>
+            Y coordinate of the first point on the conversion line.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.LinearConverter.Y2">
+      <summary>
+            Y coordinate of the second point on the conversion line.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.EvaluateF(System.Double)">
+      <summary>
+            Computes the conversion function for a given x.
+            </summary>
+      <param name="x">The value of the x variable.</param>
+      <returns>Returns the value of the conversion function.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.EvaluateInverseF(System.Double)">
+      <summary>
+            Computes the inverse conversion function for a given y.
+            </summary>
+      <param name="y">The value of the y variable.</param>
+      <returns>Returns the value of the inverse conversion function.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.ValueEquals(OpcLabs.BaseLib.Components.LinearConverter)">
+      <summary>
+            Determines whether the specified <see cref="T:OpcLabs.BaseLib.Components.LinearConverter" /> is value equal to the current object.
+            </summary>
+      <param name="other">The <see cref="T:OpcLabs.BaseLib.Components.LinearConverter" /> to compare with the current object.</param>
+      <returns>
+        <c>true</c> if the specified object is value equal to the current object; otherwise, <c>false</c>.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.Clone">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.Convert(System.Object,System.Object,System.Globalization.CultureInfo)">
+      <inheritdoc cref="M:OpcLabs.BaseLib.Data.IDataConverter.Convert(System.Object,System.Object,System.Globalization.CultureInfo)" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.ConvertBack(System.Object,System.Object,System.Globalization.CultureInfo)">
+      <inheritdoc cref="M:OpcLabs.BaseLib.Data.IDataConverter.ConvertBack(System.Object,System.Object,System.Globalization.CultureInfo)" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <inheritdoc cref="M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.ValueEquals(System.Object)">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.ReadXmlElement(System.Xml.XmlReader)">
+      <inheritdoc cref="M:OpcLabs.BaseLib.Info.ReadXmlElement(System.Xml.XmlReader)" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.WriteXmlElement(System.Xml.XmlWriter)">
+      <inheritdoc cref="M:OpcLabs.BaseLib.Info.WriteXmlElement(System.Xml.XmlWriter)" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.ShouldSerializeInverseRoot">
+      <summary>
+            Determines whether the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.InverseRoot" /> property is equal to its default value.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.ShouldSerializeInverseSlope">
+      <summary>
+            Determines whether the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.InverseSlope" /> property is equal to its default value.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.ShouldSerializeInverseYIntercept">
+      <summary>
+            Determines whether the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.InverseYIntercept" /> property is equal to its default value.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.ShouldSerializeRoot">
+      <summary>
+            Determines whether the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.Root" /> property is equal to its default value.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.ShouldSerializeSlope">
+      <summary>
+            Determines whether the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.Slope" /> property is equal to its default value.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.LinearConverter.ShouldSerializeYIntercept">
+      <summary>
+            Determines whether the <see cref="P:OpcLabs.BaseLib.Components.LinearConverter.YIntercept" /> property is equal to its default value.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+    </member>
+    <member name="T:OpcLabs.BaseLib.Components.StatusToColorConverter">
+      <summary>
+            Assigns different colors based on status information.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.#ctor">
+      <overloads>
+        <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.BaseLib.Components.StatusToColorConverter" /> class. 
+            </summary>
+      </overloads>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.#ctor(System.Drawing.Color,System.Drawing.Color,System.Drawing.Color,System.Drawing.Color)">
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.BaseLib.Components.StatusToColorConverter" /> class. 
+            </summary>
+      <param name="unknownColor">The color returned for Unknown status.</param>
+      <param name="normalColor">The color returned for Normal status.</param>
+      <param name="warningColor">The color returned for Warning status.</param>
+      <param name="errorColor">The color returned for Error status.</param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.BaseLib.Components.StatusToColorConverter" /> class. 
+            </summary>
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.BaseLib.Components.StatusToColorConverter" /> class with Designer support. 
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.#ctor(OpcLabs.BaseLib.Components.StatusToColorConverter)">
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.BaseLib.Components.StatusToColorConverter" /> class. 
+            </summary>
+      <summary>Initializes a new instance of the class, copying values from a given object.</summary>
+      <param name="statusToColorConverter">The object to be copied from.</param>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.BaseLib.Components.StatusToColorConverter" /> class. 
+            </summary>
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.StatusToColorConverter.DefaultErrorColor">
+      <summary>
+            The default Error color.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.StatusToColorConverter.DefaultNormalColor">
+      <summary>
+            The default Normal color.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.StatusToColorConverter.DefaultUnknownColor">
+      <summary>
+            The default Unknown color.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.StatusToColorConverter.DefaultWarningColor">
+      <summary>
+            The default Warning color.
+            </summary>
+      <remarks>
+        <para>
+            Equals to <see cref="P:System.Drawing.Color.Orange" />, which is generally considered to mean "Warning", and as having higher
+            severity level than <see cref="P:System.Drawing.Color.Yellow" />, which is generally considered to mean "Caution" or "Advisory".
+            This choice allows to combine the default settings with the use of <see cref="P:System.Drawing.Color.Yellow" /> for advisory
+            purposes.
+            </para>
+      </remarks>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.StatusToColorConverter.ErrorColor">
+      <summary>
+            The color returned for Error status.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.StatusToColorConverter.NormalColor">
+      <summary>
+            The color returned for Normal status.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.StatusToColorConverter.UnknownColor">
+      <summary>
+            The color returned for Unknown status.
+            </summary>
+    </member>
+    <member name="P:OpcLabs.BaseLib.Components.StatusToColorConverter.WarningColor">
+      <summary>
+            The color returned for Warning status.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.ValueEquals(OpcLabs.BaseLib.Components.StatusToColorConverter)">
+      <summary>
+            Determines whether the specified <see cref="T:OpcLabs.BaseLib.Components.StatusToColorConverter" /> is value equal to the current object.
+            </summary>
+      <param name="other">The <see cref="T:OpcLabs.BaseLib.Components.StatusToColorConverter" /> to compare with the current object.</param>
+      <returns>
+        <c>true</c> if the specified object is value equal to the current object; otherwise, <c>false</c>.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.Clone">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.Convert(System.Object,System.Object,System.Globalization.CultureInfo)">
+      <inheritdoc cref="M:OpcLabs.BaseLib.Data.IDataConverter.Convert(System.Object,System.Object,System.Globalization.CultureInfo)" />
+      <exception cref="T:System.ArgumentException">When the value is not of any of the supported types.</exception>
+      <remarks>
+            Values are converted to colors according to following rules:
+            <ul><li><c>null</c> converts to <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.NormalColor" />.</li><li>A <see cref="F:OpcLabs.BaseLib.Data.StatusInfo.Normal" /> converts to <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.NormalColor" />, 
+                    a <see cref="F:OpcLabs.BaseLib.Data.StatusInfo.Warning" /> converts to <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.WarningColor" />,
+                    a <see cref="F:OpcLabs.BaseLib.Data.StatusInfo.Error" /> converts to <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.ErrorColor" />, and
+                    a <see cref="F:OpcLabs.BaseLib.Data.StatusInfo.Unknown" /> converts to <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.UnknownColor" />.</li><li>An <see cref="T:System.Exception" />-typed value converts to <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.WarningColor" />.</li><li>Empty strings convert to <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.NormalColor" />, 
+                    non-empty strings convert to <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.ErrorColor" />.</li><li>Zero integers convert to <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.NormalColor" />, 
+                    positive integers convert to <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.WarningColor" />,
+                    negative integers convert to <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.ErrorColor" />.</li><li>A <c>true</c> Boolean converts to <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.NormalColor" />,
+                    a <c>false</c> Boolean converts to <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.ErrorColor" />.</li></ul></remarks>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.ConvertBack(System.Object,System.Object,System.Globalization.CultureInfo)">
+      <inheritdoc cref="M:OpcLabs.BaseLib.Data.IDataConverter.ConvertBack(System.Object,System.Object,System.Globalization.CultureInfo)" />
+      <exception cref="T:System.NotSupportedException">Thrown.</exception>
+      <remarks>Conversion in this direction is not supported.</remarks>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <inheritdoc cref="M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.ValueEquals(System.Object)">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.ReadXmlElement(System.Xml.XmlReader)">
+      <inheritdoc cref="M:OpcLabs.BaseLib.Info.ReadXmlElement(System.Xml.XmlReader)" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.WriteXmlElement(System.Xml.XmlWriter)">
+      <inheritdoc cref="M:OpcLabs.BaseLib.Info.WriteXmlElement(System.Xml.XmlWriter)" />
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.ResetErrorColor">
+      <summary>
+            Reset the <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.ErrorColor" /> property to its default value.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.ResetNormalColor">
+      <summary>
+            Reset the <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.NormalColor" /> property to its default value.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.ResetUnknownColor">
+      <summary>
+            Reset the <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.UnknownColor" /> property to its default value.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.ResetWarningColor">
+      <summary>
+            Reset the <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.WarningColor" /> property to its default value.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.ShouldSerializeErrorColor">
+      <summary>
+            Determines whether the <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.ErrorColor" /> property is equal to its default value.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.ShouldSerializeNormalColor">
+      <summary>
+            Determines whether the <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.NormalColor" /> property is equal to its default value.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.ShouldSerializeUnknownColor">
+      <summary>
+            Determines whether the <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.UnknownColor" /> property is equal to its default value.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+    </member>
+    <member name="M:OpcLabs.BaseLib.Components.StatusToColorConverter.ShouldSerializeWarningColor">
+      <summary>
+            Determines whether the <see cref="P:OpcLabs.BaseLib.Components.StatusToColorConverter.WarningColor" /> property is equal to its default value.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+    </member>
+  </members>
+</doc>

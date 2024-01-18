@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<FileList>
+	<File Reference="OpcLabs.BaseLib.dll">
+		<ToolboxItems UIFramework="WinForms" VSCategory="dummy">
+			<!-- No elements here - we want to prevent the toolbox items from being created. -->
+		</ToolboxItems>
+	</File>
+	<File Reference="OpcLabs.EasyOpcClassic.dll">
+		<ToolboxItems UIFramework="WinForms" VSCategory="dummy">
+			<!-- No elements here - we want to prevent the toolbox items from being created. -->
+		</ToolboxItems>
+	</File>
+	<File Reference="OpcLabs.EasyOpcClassicCore.dll">
+		<ToolboxItems UIFramework="WinForms" VSCategory="dummy">
+			<!-- No elements here - we want to prevent the toolbox items from being created. -->
+		</ToolboxItems>
+	</File>
+	<File Reference="OpcLabs.EasyOpcUA.dll">
+		<ToolboxItems UIFramework="WinForms" VSCategory="dummy">
+			<!-- No elements here - we want to prevent the toolbox items from being created. -->
+		</ToolboxItems>
+	</File>
+</FileList>
+

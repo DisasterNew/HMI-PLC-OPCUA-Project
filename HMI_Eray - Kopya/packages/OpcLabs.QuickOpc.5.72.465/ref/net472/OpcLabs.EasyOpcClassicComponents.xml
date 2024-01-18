@@ -1,0 +1,655 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>OpcLabs.EasyOpcClassicComponents</name>
+  </assembly>
+  <members>
+    <member name="T:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient">
+      <summary>
+        <para>The EasyAEClient object is the main object that allows simple access to OPC Alarms&amp;Events servers.</para>
+        <para>
+          <strong>The core members of this object come from the <see cref="T:OpcLabs.EasyOpc.AlarmsAndEvents.IEasyAEClient" /> interface.</strong>
+        </para>
+      </summary>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.#ctor">
+      <summary>Initializes a new instance of the class.</summary>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.#ctor(OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient)">
+      <param name="client">Client object to copy from.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+      <param name="configuration">Configuration to bind to.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Required for Windows.Forms Class Composition Designer support
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+      <exception cref="T:System.Runtime.Serialization.SerializationException">
+        <para>
+             An error has occurred during serialization or deserialization.</para>
+        <para>
+             This is an operation error that depends on factors external to your program, and thus cannot be always avoided. Your code must handle it appropriately.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.Create">
+      <summary>Creates a new instance of the class.</summary>
+      <returns>The newly created object.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.SharedInstance">
+      <summary>
+            A default, shared instance of the client object.
+            </summary>
+      <remarks>
+        <para>
+            Use this property with care, as its usability is limited. Its main use is for testing, and for non-library
+            application code where just a single instance is sufficient.</para>
+        <para>
+            The default instance is not suitable for Windows Forms or similar environments, where a specific 
+            <see cref="T:System.Threading.SynchronizationContext" /> may be used with each form.</para>
+        <para>
+            We do not recommend to use the default instance for library code, due to conflicts that may arise if your library
+            sets some instance parameters which may not be the same as what other libraries or th final application expects.
+            </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.Clone">
+      <inheritdoc cref="M:System.ICloneable.Clone" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.ResetSharedInstance">
+      <summary>
+            Sets the <see cref="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.SharedInstance" /> to a default.
+            </summary>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.ShouldSerializeSharedInstance">
+      <summary>
+            Determines whether the <see cref="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.SharedInstance" /> is not empty.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.OpcLabs#EasyOpc#AlarmsAndEvents#ComTypes#_EasyAEClient#DisplayString">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.AlarmsAndEvents.ComTypes._EasyAEClient.DisplayString" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.OpcLabs#EasyOpc#AlarmsAndEvents#ComTypes#_EasyAEClient#InstanceParameters">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientCore.InstanceParameters" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.OpcLabs#EasyOpc#AlarmsAndEvents#ComTypes#_EasyAEClient#IsolatedParameters">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientCore.IsolatedParameters" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.OpcLabs#EasyOpc#AlarmsAndEvents#ComTypes#_EasyAEClient#PullNotificationQueueCapacity">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientCore.PullNotificationQueueCapacity" />
+    </member>
+    <member name="T:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement">
+      <summary>
+            Allows static management and configuration of the EasyAEClient object.
+            </summary>
+      <remarks>
+        <para>
+            This object is a semi-singleton, i.e. all instances of it share the same data.</para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.#ctor">
+      <summary>Initializes a new instance of the class.</summary>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.#ctor(OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement)">
+      <param name="clientManagement">Client management object to copy from.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Required for Windows.Forms Class Composition Designer support
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.SharedInstance">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.SharedInstance" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.Clone">
+      <inheritdoc cref="M:System.ICloneable.Clone" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.OpcLabs#EasyOpc#AlarmsAndEvents#ComTypes#_EasyAEClientManagement#DisplayString">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.AlarmsAndEvents.ComTypes._EasyAEClientManagement.DisplayString" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.ResetSharedInstance">
+      <summary>
+            Sets the <see cref="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.SharedInstance" /> back to its default.
+            </summary>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.ShouldSerializeSharedInstance">
+      <summary>
+            Determines whether <see cref="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.SharedInstance" /> is in its default state.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.AlarmsAndEvents.NamespaceDoc">
+      <summary>
+            This namespace contains classes that facilitate easy work with OPC Alarms and Events.
+            </summary>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.DataAccess.Connectivity.DAConnectivity">
+      <summary>
+            Provides point connectivity to OPC Data Access (COM-based) and OPC XML-DA servers.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.Connectivity.DAConnectivity.#ctor">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.Connectivity.DAConnectivity.#ctor(OpcLabs.EasyOpc.DataAccess.Connectivity.DAConnectivity)">
+      <summary>Initializes a new instance of the class, copying values from a given object.</summary>
+      <param name="daConnectivity">The object to be copied from.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.Connectivity.DAConnectivity.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.EasyOpc.DataAccess.Connectivity.DAConnectivity" /> class with Designer support. 
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.Connectivity.DAConnectivity.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.Connectivity.DAConnectivity.Clone">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.Connectivity.DAConnectivity.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.DataAccess.Connectivity.NamespaceDoc">
+      <summary>
+            This namespace provides classes for OPC Data Access connectivity. 
+            </summary>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.DataAccess.EasyDAClient">
+      <summary>
+        <para>The EasyDAClient object is the main object that allows simple access to OPC Data Access servers.</para>
+        <para>
+          <strong>The core members of this object come from the <see cref="T:OpcLabs.EasyOpc.DataAccess.IEasyDAClient" /> interface.</strong>
+        </para>
+      </summary>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClient.#ctor">
+      <summary>Initializes a new instance of the class.</summary>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClient.#ctor(OpcLabs.EasyOpc.DataAccess.EasyDAClient)">
+      <param name="client">Client object to copy from.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClient.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+      <param name="configuration">Configuration to bind to.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClient.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Required for Windows.Forms Class Composition Designer support
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClient.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+      <exception cref="T:System.Runtime.Serialization.SerializationException">
+        <para>
+             An error has occurred during serialization or deserialization.</para>
+        <para>
+             This is an operation error that depends on factors external to your program, and thus cannot be always avoided. Your code must handle it appropriately.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClient.Create">
+      <summary>Creates a new instance of the class.</summary>
+      <returns>The newly created object.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.DataAccess.EasyDAClient.SharedInstance">
+      <summary>
+            A default, shared instance of the client object.
+            </summary>
+      <remarks>
+        <para>
+            Use this property with care, as its usability is limited. Its main use is for testing, and for non-library
+            application code where just a single instance is sufficient.</para>
+        <para>
+            The default instance is not suitable for Windows Forms or similar environments, where a specific 
+            <see cref="T:System.Threading.SynchronizationContext" /> may be used with each form.</para>
+        <para>
+            We also do not recommend using the default instance for library code, due to conflicts that may arise if your 
+            library sets some instance parameters which may not be the same as what other libraries or the final application 
+            expects.
+            </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClient.Clone">
+      <inheritdoc cref="M:System.ICloneable.Clone" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClient.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClient.ResetSharedInstance">
+      <summary>
+            Sets the <see cref="P:OpcLabs.EasyOpc.DataAccess.EasyDAClient.SharedInstance" /> to a default.
+            </summary>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClient.ShouldSerializeSharedInstance">
+      <summary>
+            Determines whether the <see cref="P:OpcLabs.EasyOpc.DataAccess.EasyDAClient.SharedInstance" /> is not empty.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.DataAccess.EasyDAClient.OpcLabs#EasyOpc#DataAccess#ComTypes#_EasyDAClient#DisplayString">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.DataAccess.ComTypes._EasyDAClient.DisplayString" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.DataAccess.EasyDAClient.OpcLabs#EasyOpc#DataAccess#ComTypes#_EasyDAClient#InstanceParameters">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.DataAccess.EasyDAClientCore.InstanceParameters" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.DataAccess.EasyDAClient.OpcLabs#EasyOpc#DataAccess#ComTypes#_EasyDAClient#IsolatedParameters">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.DataAccess.EasyDAClientCore.IsolatedParameters" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.DataAccess.EasyDAClient.OpcLabs#EasyOpc#DataAccess#ComTypes#_EasyDAClient#PullItemChangedQueueCapacity">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.DataAccess.EasyDAClientCore.PullItemChangedQueueCapacity" />
+    </member>
+    <member name="T:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement">
+      <summary>
+            Allows static management and configuration of the EasyDAClient object.
+            </summary>
+      <remarks>
+        <para>
+            This object is a semi-singleton, i.e. all instances of it share the same data.</para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.#ctor">
+      <summary>Initializes a new instance of the class.</summary>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.#ctor(OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement)">
+      <param name="clientManagement">Client management object to copy from.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Required for Windows.Forms Class Composition Designer support
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.SharedInstance">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.DataAccess.EasyDAClient.SharedInstance" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.Clone">
+      <inheritdoc cref="M:System.ICloneable.Clone" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.OpcLabs#EasyOpc#DataAccess#ComTypes#_EasyDAClientManagement#DisplayString">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.DataAccess.ComTypes._EasyDAClientManagement.DisplayString" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.ResetSharedInstance">
+      <summary>
+            Sets the <see cref="P:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.SharedInstance" /> back to its default.
+            </summary>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.ShouldSerializeSharedInstance">
+      <summary>
+            Determines whether <see cref="P:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.SharedInstance" /> is in its default state.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.DataAccess.NamespaceDoc">
+      <summary>
+            This namespace contains classes that facilitate easy work with OPC Data Access.
+            </summary>
+    </member>
+    <member name="T:OpcLabs.EasyOpc._DummyClassForEasyOpcClassicCoreReference">
+      <exclude />
+      <tocexclude />
+      <summary>
+            Dummy class causing a direct reference to OpcLabs.EasyOpcClassicCore type library. Needed for Delphi type library
+            importer.
+            </summary>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.Internal.AssemblyNames">
+      <exclude />
+    </member>
+    <member name="T:OpcLabs.BaseLib.Internal.AssemblyNames">
+      <exclude />
+    </member>
+    <member name="T:OpcLabs.BaseLib.Internal.PublicKeyTokens">
+      <exclude />
+    </member>
+    <member name="T:OpcLabs.BaseLib.Internal.SystemAssemblyNames">
+      <exclude />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClient.get_SharedInstance">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClient.OpcLabs.EasyOpc.DataAccess.ComTypes._EasyDAClient.get_CustomReference">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClient.OpcLabs.EasyOpc.DataAccess.ComTypes._EasyDAClient.set_CustomReference(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.get_SharedInstance">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.set_SharedInstance(OpcLabs.EasyOpc.DataAccess.EasyDAClient)">
+      <exception cref="T:System.ArgumentException">
+        <para>
+             One of the arguments provided to a method is not valid.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.OpcLabs.EasyOpc.DataAccess.ComTypes._EasyDAClientManagement.GetServiceByName(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.OpcLabs.EasyOpc.DataAccess.ComTypes._EasyDAClientManagement.get_CustomReference">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.OpcLabs.EasyOpc.DataAccess.ComTypes._EasyDAClientManagement.set_CustomReference(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.DataAccess.EasyDAClientManagement.OpcLabs.EasyOpc.DataAccess.ComTypes._EasyDAClientManagement.DisplayString">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.get_SharedInstance">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.OpcLabs.EasyOpc.AlarmsAndEvents.ComTypes._EasyAEClient.get_CustomReference">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient.OpcLabs.EasyOpc.AlarmsAndEvents.ComTypes._EasyAEClient.set_CustomReference(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.get_SharedInstance">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.set_SharedInstance(OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClient)">
+      <exception cref="T:System.ArgumentException">
+        <para>
+             One of the arguments provided to a method is not valid.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.OpcLabs.EasyOpc.AlarmsAndEvents.ComTypes._EasyAEClientManagement.GetServiceByName(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.OpcLabs.EasyOpc.AlarmsAndEvents.ComTypes._EasyAEClientManagement.get_CustomReference">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.OpcLabs.EasyOpc.AlarmsAndEvents.ComTypes._EasyAEClientManagement.set_CustomReference(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.AlarmsAndEvents.EasyAEClientManagement.OpcLabs.EasyOpc.AlarmsAndEvents.ComTypes._EasyAEClientManagement.DisplayString">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+  </members>
+</doc>

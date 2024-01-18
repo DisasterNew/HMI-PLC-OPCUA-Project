@@ -1,0 +1,1226 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>OpcLabs.EasyOpcUAComponents</name>
+  </assembly>
+  <members>
+    <member name="T:OpcLabs.EasyOpc.UA.AlarmsAndConditions.EasyUAAlarmsAndConditionsClient">
+      <summary>
+            A specialized OPC UA client object for alarms and conditions.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.AlarmsAndConditions.EasyUAAlarmsAndConditionsClient.#ctor">
+      <overloads>
+        <summary>
+            Initializes a new instance of the class.
+            </summary>
+      </overloads>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.AlarmsAndConditions.EasyUAAlarmsAndConditionsClient.#ctor(OpcLabs.EasyOpc.UA.AlarmsAndConditions.EasyUAAlarmsAndConditionsClient)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <summary>
+            Initializes a new instance as a copy of an existing parameters object.
+            </summary>
+      <param name="alarmsAndConditionsClient">The alarms and conditions client to be copied from.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.AlarmsAndConditions.EasyUAAlarmsAndConditionsClient.#ctor(OpcLabs.EasyOpc.UA.IEasyUAClient)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <param name="originalClient">The OPC UA client object to derive this alarms and conditions client from.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.AlarmsAndConditions.EasyUAAlarmsAndConditionsClient.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.AlarmsAndConditions.EasyUAAlarmsAndConditionsClient.Clone">
+      <inheritdoc cref="M:System.ICloneable.Clone" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.AlarmsAndConditions.EasyUAAlarmsAndConditionsClient.OpcLabs#EasyOpc#UA#AlarmsAndConditions#ComTypes#_EasyUAAlarmsAndConditionsClient#DisplayString">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.AlarmsAndConditions.ComTypes._EasyUAAlarmsAndConditionsClient.DisplayString" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.AlarmsAndConditions.EasyUAAlarmsAndConditionsClient.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.AlarmsAndConditions.NamespaceDoc">
+      <summary>
+            This namespace contains classes for Alarms and Conditions in OPC Unified Architecture (OPC-UA).
+            </summary>
+      <remarks>Do not confuse this namespace with <c>&gt;OpcLabs.EasyOpc.AlarmsAndEvents</c> namespace, which deals with 
+            OPC-DA "Classic" specification, not with OPC-UA.</remarks>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.Application.EasyUAApplication">
+      <summary>
+            A component that allows management of the OPC UA application.
+            </summary>
+      <remarks>
+        <para>
+            This object is a semi-singleton, i.e. all instances of it share the same data.</para>
+        <para>
+            For OPC UA client operations, such as access to Global Discovery Server (GDS) and Certificate Management (CM), this
+            component uses the shared instance of the client object, i.e. <see cref="P:OpcLabs.EasyOpc.UA.EasyUAClient.SharedInstance" />.</para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.#ctor">
+      <summary>Initializes a new instance of the class.</summary>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.#ctor(OpcLabs.EasyOpc.UA.Application.EasyUAApplication)">
+      <param name="application">OPC-UA application object to copy from.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Required for Windows.Forms Class Composition Designer support
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+      <exception cref="T:System.Runtime.Serialization.SerializationException">
+        <para>
+             An error has occurred during serialization or deserialization.</para>
+        <para>
+             This is an operation error that depends on factors external to your program, and thus cannot be always avoided. Your code must handle it appropriately.</para>
+      </exception>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.Instance">
+      <summary>
+            An instance of the OPC-UA Windows application class.
+            </summary>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.GetInnerApplication">
+      <remarks>
+        <para>
+            For OPC UA client operations, such as access to Global Discovery Server (GDS) and Certificate Management (CM), this
+            component uses the shared instance of the client object, i.e. <c>EasyUAClient.SharedInstance</c>.</para>
+      </remarks>
+      <seealso cref="T:OpcLabs.EasyOpc.UA.Application.EasyUAApplicationCore" />
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.Clone">
+      <inheritdoc cref="M:System.ICloneable.Clone" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs#EasyOpc#UA#Application#ComTypes#_EasyUAApplication#DisplayString">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.DisplayString" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.InnerApplication">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.Application.NamespaceDoc">
+      <summary>
+            This namespace contains classes for dealing with OPC Unified Architecture (OPC-UA) applications.
+            </summary>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.Connectivity.NamespaceDoc">
+      <summary>
+            This namespace provides classes for OPC Unified Architecture connectivity. 
+            </summary>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.Connectivity.UAConnectivity">
+      <summary>
+            Provides point connectivity to OPC Unified Architecture servers.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Connectivity.UAConnectivity.#ctor">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Connectivity.UAConnectivity.#ctor(OpcLabs.EasyOpc.UA.Connectivity.UAConnectivity)">
+      <summary>Initializes a new instance of the class, copying values from a given object.</summary>
+      <param name="uaConnectivity">The object to be copied from.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Connectivity.UAConnectivity.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.EasyOpc.UA.Connectivity.UAConnectivity" /> class with Designer support. 
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Connectivity.UAConnectivity.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Connectivity.UAConnectivity.Clone">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Connectivity.UAConnectivity.CreateBrowsePointService">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Connectivity.UAConnectivity.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.EasyUAClientManagement">
+      <summary>
+            Allows static management and configuration of the EasyUAClient object.
+            </summary>
+      <remarks>
+        <para>
+            This object is a semi-singleton, i.e. all instances of it share the same data.</para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClientManagement.#ctor">
+      <summary>Initializes a new instance of the class.</summary>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClientManagement.#ctor(OpcLabs.EasyOpc.UA.EasyUAClientManagement)">
+      <param name="clientManagement">Client management object to copy from.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClientManagement.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Required for Windows.Forms Class Composition Designer support
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClientManagement.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.EasyUAClientManagement.SharedInstance">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.EasyUAClient.SharedInstance" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClientManagement.Clone">
+      <inheritdoc cref="M:System.ICloneable.Clone" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.EasyUAClientManagement.OpcLabs#EasyOpc#UA#ComTypes#_EasyUAClientManagement#DisplayString">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.ComTypes._EasyUAClientManagement.DisplayString" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClientManagement.ResetSharedInstance">
+      <summary>
+            Sets the <see cref="P:OpcLabs.EasyOpc.UA.EasyUAClientManagement.SharedInstance" /> back to its default.
+            </summary>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClientManagement.ShouldSerializeSharedInstance">
+      <summary>
+            Determines whether <see cref="P:OpcLabs.EasyOpc.UA.EasyUAClientManagement.SharedInstance" /> is in its default state.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.FileTransfer.EasyUAFileTransferClient">
+      <summary>
+            A client object specialized for OPC UA file transfer operations.
+            </summary>
+      <remarks>
+        <para>
+            The "file transfer" in the name corresponds to how the related OPC UA specification part is titled. In reality, the
+            functionality covers more than just file transfer - it represents a file system in OPC UA, and provides file access
+            and manipulation operations.</para>
+        <para>
+            See <a href="https://kb.opclabs.com/OPC_UA_File_Transfer_concepts">OPC UA File Transfer Concepts</a> for basic
+            information about what is OPC UA File Transfer and how it works.</para>
+        <para>
+            See <a href="https://kb.opclabs.com/OPC_UA_File_Transfer_internals">OPC UA File Transfer internals</a> for more
+            information about some internal functionality aspects such as:
+            <ul><li>Object type checking</li><li>Connection locking</li><li>Stream buffering</li><li>Stream expansion</li><li>Read/write chunking</li><li>Read/write size limits</li><li>Adaptive read/write sizes</li><li>Metadata caching and model changes</li></ul></para>
+      </remarks>
+      <example>
+        <h3>.NET</h3>
+        <code source="..\..\Net\Examples\CSharp\VisualStudio\Console\UADocExamples\FileTransfer\_EasyUAFileTransferClient.ReadAllBytes.Main1.cs" lang="CSharp" title="C#" region="Example" />
+        <code source="..\..\Net\Examples\Python\CPython\Console\UADocExamples\FileTransfer\Net._EasyUAFileTransferClient.ReadAllBytes.Main1.py" lang="Python" title="Python (.NET)" region="Example" />
+        <code source="..\..\Net\Examples\VBNET\VisualStudio\Console\UADocExamples\FileTransfer\_EasyUAFileTransferClient.ReadAllBytes.Main1.vb" lang="VB.NET" title="Visual Basic (VB.NET)" region="Example" />
+      </example>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.FileTransfer.EasyUAFileTransferClient.#ctor">
+      <overloads>
+        <summary>
+            Initializes a new instance of the class.
+            </summary>
+      </overloads>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.FileTransfer.EasyUAFileTransferClient.#ctor(OpcLabs.EasyOpc.UA.FileTransfer.EasyUAFileTransferClient)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <summary>
+            Initializes a new instance as a copy of an existing client object.
+            </summary>
+      <param name="fileTransferClient">The OPC UA file transfer client to be copied from.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.FileTransfer.EasyUAFileTransferClient.#ctor(OpcLabs.EasyOpc.UA.IEasyUAClient)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <param name="originalClient">The OPC UA client object to derive this global discovery client from.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.FileTransfer.EasyUAFileTransferClient.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+      <exception cref="T:System.InvalidCastException">
+        <para>
+             An invalid casting or explicit conversion has been attempted.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+      <exception cref="T:System.Runtime.Serialization.SerializationException">
+        <para>
+             An error has occurred during serialization or deserialization.</para>
+        <para>
+             This is an operation error that depends on factors external to your program, and thus cannot be always avoided. Your code must handle it appropriately.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.FileTransfer.EasyUAFileTransferClient.Clone">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.FileTransfer.EasyUAFileTransferClient.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.FileTransfer.NamespaceDoc">
+      <summary>
+            This namespace contains classes used with OPC Unified Architecture (OPC-UA) information model for file transfer.
+            </summary>
+      <remarks>
+        <para>
+            The "file transfer" in the name corresponds to how the related OPC UA specification part is titled. In reality, the
+            functionality covers more than just file transfer - it represents a file system in OPC UA, and provides file access
+            and manipulation operations.</para>
+      </remarks>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.Gds.NamespaceDoc">
+      <summary>
+            This namespace contains classes for dealing with OPC UA Global Discovery Server (GDS).
+            </summary>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.Gds.EasyUACertificateManagementClient">
+      <summary>
+            A specialized OPC UA client object for certificate management.
+            </summary>
+      <remarks>
+        <para>
+            In the OPC UA specifications, the functionality covered by this type is described in Part 12: Discovery and Global
+            Services, in the section Certificate Management Overview.</para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUACertificateManagementClient.#ctor">
+      <overloads>
+        <summary>
+            Initializes a new instance of the class.
+            </summary>
+      </overloads>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUACertificateManagementClient.#ctor(OpcLabs.EasyOpc.UA.Gds.EasyUACertificateManagementClient)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <summary>
+            Initializes a new instance as a copy of an existing parameters object.
+            </summary>
+      <param name="certificateManagementClient">The certificate management client to be copied from.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUACertificateManagementClient.#ctor(OpcLabs.EasyOpc.UA.IEasyUAClient)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <param name="originalClient">The OPC UA client object to derive this certificate management client from.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUACertificateManagementClient.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUACertificateManagementClient.Clone">
+      <inheritdoc cref="M:System.ICloneable.Clone" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.Gds.EasyUACertificateManagementClient.OpcLabs#EasyOpc#UA#Gds#ComTypes#_EasyUACertificateManagementClient#DisplayString">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.Gds.ComTypes._EasyUAGlobalDiscoveryClient.DisplayString" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUACertificateManagementClient.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.Gds.EasyUAGlobalDiscoveryClient">
+      <summary>
+            A specialized OPC UA client object for global discovery.
+            </summary>
+      <remarks>
+        <para>
+            In the OPC UA specifications, the functionality covered by this type is described in Part 12: Discovery and Global
+            Services, in the Global Discovery Server section.</para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUAGlobalDiscoveryClient.#ctor">
+      <overloads>
+        <summary>
+            Initializes a new instance of the class.
+            </summary>
+      </overloads>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUAGlobalDiscoveryClient.#ctor(OpcLabs.EasyOpc.UA.Gds.EasyUAGlobalDiscoveryClient)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <summary>
+            Initializes a new instance as a copy of an existing client object.
+            </summary>
+      <param name="globalDiscoveryClient">The global discovery client to be copied from.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUAGlobalDiscoveryClient.#ctor(OpcLabs.EasyOpc.UA.IEasyUAClient)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <param name="originalClient">The OPC UA client object to derive this global discovery client from.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUAGlobalDiscoveryClient.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUAGlobalDiscoveryClient.Clone">
+      <inheritdoc cref="M:System.ICloneable.Clone" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.Gds.EasyUAGlobalDiscoveryClient.OpcLabs#EasyOpc#UA#Gds#ComTypes#_EasyUAGlobalDiscoveryClient#DisplayString">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.Gds.ComTypes._EasyUAGlobalDiscoveryClient.DisplayString" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUAGlobalDiscoveryClient.OpcLabs#EasyOpc#UA#Gds#ComTypes#_EasyUAGlobalDiscoveryClient#QueryServers(System.Object,System.Int32,System.Int32,System.String,System.String,System.String,System.Object,System.DateTime@,System.Object@)">
+      <inheritdoc cref="M:OpcLabs.EasyOpc.UA.Gds.IEasyUAGlobalDiscoveryClient.QueryServers(OpcLabs.EasyOpc.UA.UAEndpointDescriptor,System.Int64,System.Int64,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.DateTime@,OpcLabs.EasyOpc.UA.Discovery.UAServerOnNetwork[]@)" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUAGlobalDiscoveryClient.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.NamespaceDoc">
+      <summary>
+            This namespace contains classes that facilitate easy work with OPC Unified Architecture (OPC-UA).
+            It also contains the most important extension classes.
+            </summary>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.PubSub.Connectivity.NamespaceDoc">
+      <summary>
+            This namespace provides classes for OPC Unified Architecture PubSub connectivity. 
+            </summary>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.PubSub.Connectivity.UAPubSubConnectivity">
+      <summary>
+            Provides point connectivity to OPC Unified Architecture PubSub.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.Connectivity.UAPubSubConnectivity.#ctor">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.Connectivity.UAPubSubConnectivity.#ctor(OpcLabs.EasyOpc.UA.PubSub.Connectivity.UAPubSubConnectivity)">
+      <summary>Initializes a new instance of the class, copying values from a given object.</summary>
+      <param name="uaPubSubConnectivity">The object to be copied from.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.Connectivity.UAPubSubConnectivity.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Initializes an instance of the <see cref="T:OpcLabs.EasyOpc.UA.PubSub.Connectivity.UAPubSubConnectivity" /> class with Designer support. 
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.Connectivity.UAPubSubConnectivity.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.Connectivity.UAPubSubConnectivity.Clone">
+      <inheritdoc cref="M:System.ICloneable.Clone" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.Connectivity.UAPubSubConnectivity.CreateBrowsePointService">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.Connectivity.UAPubSubConnectivity.CreateCreatePointService">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.Connectivity.UAPubSubConnectivity.CreateSubscribePointService">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.Connectivity.UAPubSubConnectivity.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement">
+      <summary>
+            Allows static management and configuration of the EasyUASubscriber object.
+            </summary>
+      <remarks>
+        <para>
+            This object is a semi-singleton, i.e. all instances of it share the same data.</para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement.#ctor">
+      <summary>Initializes a new instance of the class.</summary>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement.#ctor(OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement)">
+      <param name="subscriberManagement">Subscriber configuration object to copy from.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Required for Windows.Forms Class Composition Designer support
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement.SharedInstance">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.SharedInstance" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement.Clone">
+      <inheritdoc cref="M:System.ICloneable.Clone" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement.OpcLabs#EasyOpc#UA#PubSub#ComTypes#_EasyUASubscriberManagement#DisplayString">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.PubSub.ComTypes._EasyUASubscriberManagement.DisplayString" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement.ResetSharedInstance">
+      <summary>
+            Sets the <see cref="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement.SharedInstance" /> back to its default.
+            </summary>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement.ShouldSerializeSharedInstance">
+      <summary>
+            Determines whether <see cref="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement.SharedInstance" /> is in its default state.
+            </summary>
+      <returns>
+        <c>true</c> if the property has changed from its default value; <c>false</c> otherwise.</returns>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.PubSub.InformationModel.EasyUAPublishSubscribeClient">
+      <summary>
+            A specialized client object for OPC UA PubSub information model.
+            </summary>
+      <example>
+        <h3>.NET</h3>
+        <code source="..\..\Net\Examples\CSharp\VisualStudio\Console\UADocExamples\PubSub\_IUAReadOnlyPubSubConfiguration\GetMethods.PublishedDataSets.cs" lang="CSharp" title="C#" region="Example" />
+        <code source="..\..\Net\Examples\Python\CPython\Console\UADocExamples\PubSub\_IUAReadOnlyPubSubConfiguration\Net.GetMethods.PublishedDataSets.py" lang="Python" title="Python (.NET)" region="Example" />
+        <code source="..\..\Net\Examples\VBNET\VisualStudio\Console\UADocExamples\PubSub\_IUAReadOnlyPubSubConfiguration\GetMethods.PublishedDataSets.vb" lang="VB.NET" title="Visual Basic (VB.NET)" region="Example" />
+      </example>
+      <example>
+        <h3>COM</h3>
+        <code source="..\..\Native\Examples\OP\UADocExamples\PubSub\_IUAReadOnlyPubSubConfiguration\GetMethods.PublishedDataSets.inc" language="ObjectPascal" lang="Object Pascal" title="Object Pascal" region="Example" />
+        <code source="..\..\Native\Examples\VBScript\WSH\UADocExamples\PubSub\_IUAReadOnlyPubSubConfiguration\GetMethods.PublishedDataSets.vbs" lang="VBScript" title="VBScript" region="Example" />
+      </example>
+      <remarks>
+        <para>
+            This class does *not* have OPC UA Subscriber functionality; if you need that, see <see cref="T:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber" />.</para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.InformationModel.EasyUAPublishSubscribeClient.#ctor">
+      <overloads>
+        <summary>
+            Initializes a new instance of the class.
+            </summary>
+      </overloads>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.InformationModel.EasyUAPublishSubscribeClient.#ctor(OpcLabs.EasyOpc.UA.PubSub.InformationModel.EasyUAPublishSubscribeClient)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <summary>
+            Initializes a new instance as a copy of an existing parameters object.
+            </summary>
+      <param name="publishSubscribeClient">The PubSub configuration client to be copied from.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.InformationModel.EasyUAPublishSubscribeClient.#ctor(OpcLabs.EasyOpc.UA.IEasyUAClient)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <param name="originalClient">The OPC UA client object to derive this global discovery client from.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.InformationModel.EasyUAPublishSubscribeClient.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>
+            Initializes a new instance of the class.
+            </summary>
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.InformationModel.EasyUAPublishSubscribeClient.Clone">
+      <inheritdoc cref="M:System.ICloneable.Clone" />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.InformationModel.EasyUAPublishSubscribeClient.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.PubSub.InformationModel.NamespaceDoc">
+      <summary>
+            This namespace contains classes that facilitate easy work with OPC Unified Architecture (OPC-UA) PubSub information model.
+            </summary>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.PubSub.NamespaceDoc">
+      <summary>
+            This namespace contains classes that facilitate easy work with OPC Unified Architecture (OPC-UA) PubSub.
+            It also contains the most important extension classes.
+            </summary>
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber">
+      <summary>
+        <para>The EasyUASubscriber object is the main object that allows simple access to OPC-UA PubSub publishers.</para>
+        <para>
+          <strong>The core members of this object come from the <see cref="T:OpcLabs.EasyOpc.UA.PubSub.IEasyUASubscriber" /> interface.</strong>
+        </para>
+      </summary>
+      <example>
+        <h3>.NET</h3>
+        <code source="..\..\Net\Examples\CSharp\VisualStudio\Console\UADocExamples\PubSub\_EasyUASubscriber\SubscribeDataSet.Main1.cs" lang="CSharp" title="C#" region="Example" />
+        <code source="..\..\Net\Examples\PowerShell\Windows\UADocExamples\PubSub\_EasyUASubscriber\SubscribeDataSet.Main1.ps1" lang="PowerShell" region="Example" />
+        <code source="..\..\Net\Examples\Python\CPython\Console\UADocExamples\PubSub\_EasyUASubscriber\Net.SubscribeDataSet.Main1.py" lang="Python" title="Python (.NET)" region="Example" />
+        <code source="..\..\Net\Examples\VBNET\VisualStudio\Console\UADocExamples\PubSub\_EasyUASubscriber\SubscribeDataSet.Main1.vb" lang="VB.NET" title="Visual Basic (VB.NET)" region="Example" />
+      </example>
+      <example>
+        <h3>COM</h3>
+        <code source="..\..\Native\Examples\CPP\VisualStudio\Win32\UADocExamples\PubSub\_EasyUASubscriber\SubscribeDataSet.Main1.cpp" language="CPlusPlus" lang="C++" title="C++" region="Example" />
+        <code source="..\..\Native\Examples\OP\UADocExamples\PubSub\_EasyUASubscriber\SubscribeDataSet.Main1.inc" language="ObjectPascal" lang="Object Pascal" title="Object Pascal" region="Example" />
+        <code source="..\..\Native\Examples\PHP\Console\UADocExamples\PubSub\_EasyUASubscriber\SubscribeDataSet.Main1.php" lang="PHP" title="PHP" region="Example" />
+        <code source="..\..\Native\Examples\VB\VB60\UADocExamples\PubSubForm.frm" language="VB" lang="Visual Basic (VB 6.0)" title="Visual Basic (VB 6.0)" region="Example _EasyUASubscriber.SubscribeDataSet.Main1" />
+        <code source="..\..\Native\Examples\VBScript\WSH\UADocExamples\PubSub\_EasyUASubscriber\SubscribeDataSet.Main1.vbs" lang="VBScript" title="VBScript" region="Example" />
+      </example>
+      <example>
+        <h3>.NET</h3>
+        <code source="..\..\Net\Examples\Python\CPython\Console\UADocExamples\PubSub\_EasyUASubscriber\Net.PullDataSetMessage.Main1.py" lang="Python" title="Python (.NET)" region="Example" />
+      </example>
+      <example>
+        <h3>COM</h3>
+        <code source="..\..\Native\Examples\Python\CPython\Console\UADocExamples\PubSub\_EasyUASubscriber\Com.PullDataSetMessage.Main1.py" lang="Python" title="Python (COM)" region="Example" />
+      </example>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.#ctor">
+      <summary>Initializes a new instance of the class.</summary>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.#ctor(OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber)">
+      <param name="subscriber">Subscriber object to copy from.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+      <param name="configuration">Configuration to bind to.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Required for Windows.Forms Class Composition Designer support
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.Create">
+      <summary>Creates a new instance of the class.</summary>
+      <returns>The newly created object.</returns>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.SharedInstance">
+      <summary>
+            A shared instance of the subscriber object.
+            </summary>
+      <remarks>
+        <para>
+            Use this property with care, as its usability is limited. Its main use is for testing, and for non-library
+            application code where just a single instance is sufficient.</para>
+        <para>
+            The shared instance is not suitable for Windows Forms or similar environments, where a specific 
+            <see cref="T:System.Threading.SynchronizationContext" /> may be used with each form.</para>
+        <para>
+            We also do not recommend using the shared instance for library code, due to conflicts that may arise if your 
+            library sets some instance parameters which may not be the same as what other libraries or the final application 
+            expects.
+            </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.Clone">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.OpcLabs#EasyOpc#UA#PubSub#ComTypes#_EasyUASubscriber#DisplayString">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.PubSub.ComTypes._EasyUASubscriber.DisplayString" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.OpcLabs#EasyOpc#UA#PubSub#ComTypes#_EasyUASubscriber#InstanceParameters">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberCore.InstanceParameters" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.OpcLabs#EasyOpc#UA#PubSub#ComTypes#_EasyUASubscriber#IsolatedParameters">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberCore.IsolatedParameters" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.OpcLabs#EasyOpc#UA#PubSub#ComTypes#_EasyUASubscriber#PullDataSetMessageQueueCapacity">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberCore.PullDataSetMessageQueueCapacity" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.OpcLabs#EasyOpc#UA#PubSub#ComTypes#_EasyUASubscriber#PullResolverAccessQueueCapacity">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberCore.PullResolverAccessQueueCapacity" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.OpcLabs#EasyOpc#UA#PubSub#ComTypes#_EasyUASubscriber#PullSubscriptionResolvedQueueCapacity">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberCore.PullSubscriptionResolvedQueueCapacity" />
+    </member>
+    <member name="T:OpcLabs.EasyOpc.UA.EasyUAClient">
+      <summary>
+        <para>The EasyUAClient object is the main object that allows simple access to OPC Unified Architecture servers.</para>
+        <para>
+          <strong>The core members of this object come from the <see cref="T:OpcLabs.EasyOpc.UA.IEasyUAClient" /> interface.</strong>
+        </para>
+      </summary>
+      <example>
+        <h3>.NET</h3>
+        <code source="..\..\Net\Examples\CSharp\VisualStudio\Console\UADocExamples\_EasyUAClient\ReadValue.Overload1.cs" lang="CSharp" title="C#" region="Example" />
+        <code source="..\..\Net\Examples\PowerShell\Windows\UADocExamples\_EasyUAClient\ReadValue.Overload1.ps1" lang="PowerShell" region="Example" />
+        <code source="..\..\Net\Examples\Python\CPython\Console\UADocExamples\_EasyUAClient\Net.ReadValue.Overload1.py" lang="Python" title="Python (.NET)" region="Example" />
+        <code source="..\..\Net\Examples\VBNET\VisualStudio\Console\UADocExamples\_EasyUAClient\ReadValue.Overload1.vb" lang="VB.NET" title="Visual Basic (VB.NET)" region="Example" />
+      </example>
+      <example>
+        <h3>.NET</h3>
+        <code source="..\..\Net\Examples\CSharp\VisualStudio\Console\UADocExamples\_EasyUAClient\SubscribeDataChange.Overload1.cs" lang="CSharp" title="C#" region="Example" />
+        <code source="..\..\Net\Examples\PowerShell\Windows\UADocExamples\_EasyUAClient\SubscribeDataChange.Overload1.ps1" lang="PowerShell" region="Example" />
+        <code source="..\..\Net\Examples\Python\CPython\Console\UADocExamples\_EasyUAClient\Net.SubscribeDataChange.Overload1.py" lang="Python" title="Python (.NET)" region="Example" />
+        <code source="..\..\Net\Examples\VBNET\VisualStudio\Console\UADocExamples\_EasyUAClient\SubscribeDataChange.Overload1.vb" lang="VB.NET" title="Visual Basic (VB.NET)" region="Example" />
+      </example>
+      <example>
+        <h3>.NET</h3>
+        <code source="..\..\Net\Examples\CSharp\VisualStudio\Console\UADocExamples\_EasyUAClient\ReadValue.MultipleServers.cs" lang="CSharp" title="C#" region="Example" />
+        <code source="..\..\Net\Examples\Python\CPython\Console\UADocExamples\_EasyUAClient\Net.ReadValue.MultipleServers.py" lang="Python" title="Python (.NET)" region="Example" />
+      </example>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClient.#ctor">
+      <summary>Initializes a new instance of the class.</summary>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClient.#ctor(OpcLabs.EasyOpc.UA.EasyUAClient)">
+      <param name="client">Client object to copy from.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClient.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+      <param name="configuration">Configuration to bind to.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClient.#ctor(System.ComponentModel.IContainer)">
+      <summary>
+            Required for Windows.Forms Class Composition Designer support
+            </summary>
+      <param name="container">The component container to which the new instance will be added.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClient.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+      <summary>Initializes a new instance of the class with serialized data.</summary>
+      <param name="info">The SerializationInfo that holds the serialized object data.</param>
+      <param name="context">The StreamingContext that contains contextual information about the source or destination. 
+            </param>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+      <exception cref="T:System.Runtime.Serialization.SerializationException">
+        <para>
+             An error has occurred during serialization or deserialization.</para>
+        <para>
+             This is an operation error that depends on factors external to your program, and thus cannot be always avoided. Your code must handle it appropriately.</para>
+      </exception>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.EasyUAClient.SharedInstance">
+      <summary>
+            A shared instance of the client object.
+            </summary>
+      <remarks>
+        <para>
+            Use this property with care, as its usability is limited. Its main use is for testing, and for non-library
+            application code where just a single instance is sufficient.</para>
+        <para>
+            The shared instance is not suitable for Windows Forms or similar environments, where a specific 
+            <see cref="T:System.Threading.SynchronizationContext" /> may be used with each form.</para>
+        <para>
+            We also do not recommend using the shared instance for library code, due to conflicts that may arise if your 
+            library sets some instance parameters which may not be the same as what other libraries or the final application 
+            expects.
+            </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClient.Create">
+      <summary>Creates a new instance of the class.</summary>
+      <returns>The newly created object.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClient.Clone">
+      <inheritdoc />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClient.DeepClone">
+      <summary>
+            Creates a new object that is a deep copy of the current instance.
+            </summary>
+      <returns>A new object that is a deep copy of this instance.</returns>
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.EasyUAClient.OpcLabs#EasyOpc#UA#ComTypes#_EasyUAClient#DisplayString">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.ComTypes._EasyUAClient.DisplayString" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.EasyUAClient.OpcLabs#EasyOpc#UA#ComTypes#_EasyUAClient#InstanceParameters">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.EasyUAClientCore.InstanceParameters" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.EasyUAClient.OpcLabs#EasyOpc#UA#ComTypes#_EasyUAClient#IsolatedParameters">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.EasyUAClientCore.IsolatedParameters" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.EasyUAClient.OpcLabs#EasyOpc#UA#ComTypes#_EasyUAClient#PullDataChangeNotificationQueueCapacity">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.EasyUAClientCore.PullDataChangeNotificationQueueCapacity" />
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.EasyUAClient.OpcLabs#EasyOpc#UA#ComTypes#_EasyUAClient#PullEventNotificationQueueCapacity">
+      <inheritdoc cref="P:OpcLabs.EasyOpc.UA.EasyUAClientCore.PullEventNotificationQueueCapacity" />
+    </member>
+    <member name="T:OpcLabs.EasyOpc.Internal.AssemblyNames">
+      <exclude />
+    </member>
+    <member name="T:OpcLabs.BaseLib.Internal.AssemblyNames">
+      <exclude />
+    </member>
+    <member name="T:OpcLabs.BaseLib.Internal.PublicKeyTokens">
+      <exclude />
+    </member>
+    <member name="T:OpcLabs.BaseLib.Internal.SystemAssemblyNames">
+      <exclude />
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClientManagement.get_SharedInstance">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClientManagement.set_SharedInstance(OpcLabs.EasyOpc.UA.EasyUAClient)">
+      <exception cref="T:System.ArgumentException">
+        <para>
+             One of the arguments provided to a method is not valid.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+      <exception cref="T:System.ArgumentNullException">
+        <para>
+             A <c>null</c> reference (<c>Nothing</c> in Visual Basic) is passed to a method that does not accept it as a valid argument.</para>
+        <para>
+             This is a usage error, i.e. it will never occur (the exception will not be thrown) in a correctly written program. Your code should not catch this exception.</para>
+      </exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClientManagement.OpcLabs.EasyOpc.UA.ComTypes._EasyUAClientManagement.GetServiceByName(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClientManagement.OpcLabs.EasyOpc.UA.ComTypes._EasyUAClientManagement.get_CustomReference">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClientManagement.OpcLabs.EasyOpc.UA.ComTypes._EasyUAClientManagement.set_CustomReference(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.EasyUAClientManagement.OpcLabs.EasyOpc.UA.ComTypes._EasyUAClientManagement.DisplayString">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClient.get_SharedInstance">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClient.OpcLabs.EasyOpc.UA.ComTypes._EasyUAClient.get_CustomReference">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.EasyUAClient.OpcLabs.EasyOpc.UA.ComTypes._EasyUAClient.set_CustomReference(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement.OpcLabs.EasyOpc.UA.PubSub.ComTypes._EasyUASubscriberManagement.get_CustomReference">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriberManagement.OpcLabs.EasyOpc.UA.PubSub.ComTypes._EasyUASubscriberManagement.set_CustomReference(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.OpcLabs.EasyOpc.UA.PubSub.ComTypes._EasyUASubscriber.get_CustomReference">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.EasyUASubscriber.OpcLabs.EasyOpc.UA.PubSub.ComTypes._EasyUASubscriber.set_CustomReference(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.InformationModel.EasyUAPublishSubscribeClient.OpcLabs.EasyOpc.UA.PubSub.InformationModel.ComTypes._EasyUAPublishSubscribeClient.get_CustomReference">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.PubSub.InformationModel.EasyUAPublishSubscribeClient.OpcLabs.EasyOpc.UA.PubSub.InformationModel.ComTypes._EasyUAPublishSubscribeClient.set_CustomReference(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUACertificateManagementClient.OpcLabs.EasyOpc.UA.Gds.ComTypes._EasyUACertificateManagementClient.get_CustomReference">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUACertificateManagementClient.OpcLabs.EasyOpc.UA.Gds.ComTypes._EasyUACertificateManagementClient.set_CustomReference(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUAGlobalDiscoveryClient.OpcLabs.EasyOpc.UA.Gds.ComTypes._EasyUAGlobalDiscoveryClient.get_CustomReference">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Gds.EasyUAGlobalDiscoveryClient.OpcLabs.EasyOpc.UA.Gds.ComTypes._EasyUAGlobalDiscoveryClient.set_CustomReference(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.GetServiceByName(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.get_CustomReference">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.set_CustomReference(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.AssureOwnCertificate(System.Object)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.CreateOwnCertificate(System.Object)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.ExportApplicationConfigurationToFile(System.String)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.ExportOwnCertificateToFile(System.Object)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.ExportRegisteredApplicationToFile(System.String)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.ExportSecuredApplicationToFile(System.String)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.FindGdsRegistrations(System.Object)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.FindOwnCertificate(System.String)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.GetApplicationElement">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.GetApplicationId(System.Object)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.GetCertificateSubjectName(System.String)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.GetPrivateKeyPasswordStrength(System.String)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.HasOwnCertificate(System.String)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.HasPrivateKeyPassword(System.String)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.ImportOwnCertificateFromFile(System.Object)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.ListCertificateSubIds">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.ListCertificateTypeElements(System.Object,OpcLabs.BaseLib.Security.Cryptography.PkiCertificates.PkiApplicationStoreKind)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.ObtainNewCertificate(System.Object)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.ProtectOrUnprotectOwnCertificate(System.String,System.String)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.ProtectOwnCertificate(System.String)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.RefreshTrustLists(System.Object,System.Boolean)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.RegisterToGds(System.Object)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.RemoveOwnCertificates(System.String,System.Boolean,System.Boolean)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.RemovePrivateKeyPassword(System.String)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.SetPrivateKeyPassword(System.String,System.String)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.UnregisterFromGds(System.Object)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.UnprotectOwnCertificate">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.UpdateGdsRegistration(System.Object)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.ValidateOwnCertificate(System.Object)">
+      <exception cref="T:System.Exception">An error has occurred during application execution.</exception>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.DisplayString">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.CustomReference">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="P:OpcLabs.EasyOpc.UA.Application.EasyUAApplication.OpcLabs.EasyOpc.UA.Application.ComTypes._EasyUAApplication.ApplicationIdDictionary">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.AlarmsAndConditions.EasyUAAlarmsAndConditionsClient.OpcLabs.EasyOpc.UA.AlarmsAndConditions.ComTypes._EasyUAAlarmsAndConditionsClient.get_CustomReference">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+    <member name="M:OpcLabs.EasyOpc.UA.AlarmsAndConditions.EasyUAAlarmsAndConditionsClient.OpcLabs.EasyOpc.UA.AlarmsAndConditions.ComTypes._EasyUAAlarmsAndConditionsClient.set_CustomReference(System.String)">
+      <remarks>
+        <para>
+             This method or property does not throw any exceptions, aside from execution exceptions such as
+             <see cref="T:System.Threading.ThreadAbortException" /> or <see cref="T:System.OutOfMemoryException" />. </para>
+      </remarks>
+    </member>
+  </members>
+</doc>
